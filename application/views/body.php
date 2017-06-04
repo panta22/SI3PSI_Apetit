@@ -5,7 +5,7 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
 		<!--content-->
 
 
-<nav id="main-navbar" class="hidden-xs hidden-sm">
+<!-- <nav id="main-navbar" class="hidden-xs hidden-sm">
 	<div class="nav hidden-xs">
 		<div class="main-reorder pull-right">
 			<a href="#">
@@ -88,7 +88,7 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
 			</ul>
 		</div>
 	</div>
-</nav>
+</nav> -->
 
 
 

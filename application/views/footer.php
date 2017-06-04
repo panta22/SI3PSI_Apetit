@@ -17,14 +17,14 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
 
 			<div class="gallery-wrapper"></div>
 
-			<div id="preloader">
+			<!-- <div id="preloader">
 				<div id="status">
 					<div class="loading-wrapper">
 						<img src="/apetit/img/logo2.png" alt="Loading"/>
 					</div>
 				</div>
 				<div id="status-loaded"></div>
-			</div>
+			</div> -->
 		</div>
 		<script src="/apetit/js/browser.js"></script>
 		<script src="/apetit/js/jquery.ba-throttle-debounce.min.js"></script>

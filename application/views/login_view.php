@@ -4,7 +4,7 @@
  
  <section id="contact" class="section-scroll main-section">
 		<header class="section-header">
-			<h2>Apetit Restaurant kurac</h2>
+			<h2>Apetit Restaurant</h2>
 		</header> 
 	<div class="contact-content container section-padding">
 		<div class="row">
@@ -23,7 +23,7 @@
 						    <button name = "btn_login" type="submit" value = "Login">Login</button>
 						    <input type="checkbox" checked="checked">Remember me<br></br>
 						    
-							<a href="register" class="   active ">Registration</a>
+							<a href="register" class="active">Registration</a>
 
 
 						

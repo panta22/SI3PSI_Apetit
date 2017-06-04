@@ -20,6 +20,9 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
 		<div class="main-nav">
 			<ul class="pull-right">
 				<li>
+					<a href="" class="">Welcome <?php echo $username?>!</a>
+				</li>
+				<li>
 					<a href="index4.html" class="">home</a>
 										
 				</li>				
@@ -36,7 +39,7 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
 				</li>
 				
 				<li>
-					<a href="login.html" class="active">Login</a>
+					<a href="<?php echo site_url('home/logout');?>" class="active">Logout</a>
 									
 				</li>
 								

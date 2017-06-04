@@ -17,8 +17,8 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
 		<link href="http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,400,300,600,700,800&amp;subset=latin,latin-ext" rel="stylesheet" type="text/css">
 
 		<link rel="stylesheet" href="/apetit/css/custom.css">
-		<script src="/Test/js/jquery-2.1.0.min.js"></script>
-		<script src="/Test/js/modernizr-2.6.2.min.js"></script>
+		<script src="/apetit/js/jquery-2.1.0.min.js"></script>
+		<script src="/apetit/js/modernizr-2.6.2.min.js"></script>
 		<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?sensor=false&amp;ver=3.0"></script>
 
     </head>
