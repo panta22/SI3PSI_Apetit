@@ -18,10 +18,12 @@ class Home extends CI_Controller
         if ($this->session->userdata('logged_in')) {
             $session_data     = $this->session->userdata('logged_in');
             $data['username'] = $session_data['username'];
+            // $data['h'] = $this->user->selectSpecs();
+
             // $this->load->view('home_view', $data);
             $this->load->view('header.php');
             $this->load->view('usernavbar.php', $data);
-            $this->load->view('body.php');
+            $this->load->view('bodymenu.php'); //$data
             $this->load->view('footer.php');
         } else {
             //If no session, redirect to login page
@@ -38,6 +40,8 @@ class Home extends CI_Controller
         $this->load->helper('url');
         redirect('home', 'refresh');
     }
+
+
     
 }
 

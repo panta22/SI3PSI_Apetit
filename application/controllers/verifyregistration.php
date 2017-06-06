@@ -22,7 +22,7 @@ class VerifyRegistration extends CI_Controller
         $this->form_validation->set_rules('username', 'Username', 'required');
         $this->form_validation->set_rules('email', 'Email', 'required|valid_email');
         $this->form_validation->set_rules('password', 'Password', 'required');
-        $this->form_validation->set_rules('cpassword', 'Confirm Password', 'required'); //|matches[password]
+        $this->form_validation->set_rules('cpassword', 'Confirm Password', 'required|matches[password]'); //|matches[password]
         $this->form_validation->set_rules('address', 'Address', 'required');
         $this->form_validation->set_rules('apartment', 'Apartment', 'required|numeric');
         $this->form_validation->set_rules('floor', 'Floor', 'required|numeric');
@@ -39,13 +39,13 @@ class VerifyRegistration extends CI_Controller
             $register = $this->user->insertdata($_POST);
             
             if ($register) {
-                echo "<script>alert('added Sucessfully')</script>";
+                // echo "<script>alert('added Sucessfully')</script>";
             } else
                 echo "<script>alert('FAILED')</script>";
             
-            //  $this->load->view('login_view');
-            //  $this->load->helper('url');
-            //  redirect('home', 'refresh');
+             // $this->load->view('login_view');
+             $this->load->helper('url');
+             redirect('home', 'refresh');
         }
         
     }

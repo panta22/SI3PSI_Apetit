@@ -64,6 +64,13 @@ Class User extends CI_Model
         else
             return FALSE;
     }
+
+
+    public function selectSpecs()
+    {
+        $query = $this->db->get('specialty');
+        return $query;
+    }
 }
 ?>
 

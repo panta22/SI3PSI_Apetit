@@ -19,13 +19,13 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
 		</div>
 		<div class="main-nav">
 			<ul class="pull-right">
-				<li>
+				<!-- <li>
 					<a href="index4.html" class="">home</a>
 										
-				</li>				
+				</li>	 -->			
 				
 				<li>
-					<a href="menu.html" class="hover-subnav ">menu</a>
+					<a href="<?php echo site_url('menu');?>" class="hover-subnav ">menu</a>
 					<div class="subnav image-subnav">
 						
 					</div>
@@ -36,7 +36,7 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
 				</li>
 				
 				<li>
-					<a href="login.html" class="active">Login</a>
+					<a href="<?php echo site_url('menu/login');?>" class="active">Login</a>
 									
 				</li>
 								
