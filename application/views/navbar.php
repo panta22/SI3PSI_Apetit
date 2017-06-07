@@ -23,22 +23,79 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
 					<a href="index4.html" class="">home</a>
 										
 				</li>	 -->			
-				
-				<li>
-					<a href="<?php echo site_url('menu');?>" class="hover-subnav ">menu</a>
-					<div class="subnav image-subnav">
-						
-					</div>
-				</li>	
-				
-				<li>
-					<a href="contact.html" class="">contact</a>	
-				</li>
-				
-				<li>
-					<a href="<?php echo site_url('menu/login');?>" class="active">Login</a>
+				<?php
+					if ($this->session->userdata('logged_in')) {
+						$session_data = $this->session->userdata('logged_in');
+						if($session_data['type'] == 1){
+				?>
+							<li>
+								<a href="" class="">Welcome <?php echo $username?>!</a>
+							</li>
+
+							<li>
+								<a href="<?php echo site_url('userMenu');?>" class="hover-subnav ">menu</a>
+								<div class="subnav image-subnav">
 									
-				</li>
+								</div>
+							</li>	
+							
+							<li>
+								<a href="<?php echo site_url('home/contact');?>" class="">contact</a>	
+							</li>
+							
+							<li>
+								<a href="<?php echo site_url('userMenu/logout');?>" class="active">Logout</a>
+												
+							</li>
+
+				<?php
+						}
+					
+
+					else if($session_data['type'] = 2){
+				?>
+						<li>
+							<a href="" class="">Welcome <?php echo $username?>!</a>
+						</li>
+						
+						<li>
+							<a href="<?php echo site_url('employeeMenu');?>" class="hover-subnav ">menu</a>
+							<div class="subnav image-subnav">
+								
+							</div>
+						</li>	
+						
+						<li>
+							<a href="<?php echo site_url('employeeAdd');?>" class="">AddFood</a>	
+						</li>
+						
+						<li>
+							<a href="<?php echo site_url('userMenu/logout');?>" class="active">Logout</a>
+						</li>
+					<?php
+						}
+					}
+						else {
+					?>
+							<li>
+							<a href="<?php echo site_url('guestMenu');?>" class="hover-subnav ">menu</a>
+							<div class="subnav image-subnav">
+								
+							</div>
+						</li>	
+						
+						<li>
+							<a href="contact.html" class="">contact</a>	
+						</li>
+						
+						<li>
+							<a href="<?php echo site_url('login');?>" class="active">Login</a>
+											
+						</li>
+				<?php
+							}
+						
+				?>
 								
 			</ul>
 		</div>

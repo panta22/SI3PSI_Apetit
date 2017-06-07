@@ -20,21 +20,47 @@ class VerifyLogin extends CI_Controller
         $this->form_validation->set_rules('password', 'Password', 'trim|required|xss_clean|callback_check_database');
         
         if ($this->form_validation->run() == FALSE) {
-            // redirect('login/index');
-            //Field validation failed.  User redirected to login page
-            $this->load->view('header.php');
-            $this->load->view('navbar.php');
-            $this->load->view('login_view');
-            $this->load->view('footer.php');
-            // echo validation_errors();
-        } else {
+                // redirect('login/index');
+                //Field validation failed.  User redirected to login page
+                $this->load->view('header.php');
+                $this->load->view('navbar.php');
+                $this->load->view('login_view');
+                $this->load->view('footer.php');
+                // echo validation_errors();
+        } 
+        else {
+            // $data['user_type'] = 0;
+
+            if ($this->session->userdata('logged_in')) {
+                $session_data     = $this->session->userdata('logged_in');
+                // $data['user_type'] = $session_data['type'];
+                $this->load->helper('url');
+            // }   
+
+                switch($session_data['type']){
+                    
+                    case 1: 
+                        redirect('userMenu');
+                        break;
+
+                    case 2:
+                        redirect('employeeMenu'); //zaposleni view
+                        break;
+
+                    case 3: 
+                        // admin view
+                        break;
+
+                }
             
-            // $this->load->helper('url');
-            redirect('home/index');
-            
+            }
+
+                // redirect('home/index');
         }
+            
         
-    }
+        
+     }
     
     function check_database($password)
     {
@@ -42,14 +68,15 @@ class VerifyLogin extends CI_Controller
         $username = $this->input->post('username');
         
         //query the database
-        $result = $this->user->login($username, $password);
+        $result = $this->user->login_db($username, $password);
         
         if ($result) {
             $sess_array = array();
             foreach ($result as $row) {
                 $sess_array = array(
                     'id' => $row->id,
-                    'username' => $row->username
+                    'username' => $row->username,
+                    'type' => $row->type
                 );
                 $this->session->set_userdata('logged_in', $sess_array);
             }

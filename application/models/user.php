@@ -3,12 +3,13 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 Class User extends CI_Model
 {
-    function login($username, $password)
+    function login_db($username, $password)
     {
-        $this->db->select('id, username, password');
+        $this->db->select('id, username, password, type');
         $this->db->from('users');
         $this->db->where('username', $username);
         $this->db->where('password', $password);
+        // $this->db->where('type', $type);
         $this->db->limit(1);
         
         $query = $this->db->get();
@@ -20,7 +21,7 @@ Class User extends CI_Model
         }
     }
     
-    function insertdata($options = array())
+    function register_db($options = array())
     {
         $this->db->trans_start();
         if (isset($options['username']))
@@ -71,6 +72,12 @@ Class User extends CI_Model
         $query = $this->db->get('specialty');
         return $query;
     }
+
+    // public function selectCategory()
+    // {
+    //     $query = $this->db->get('category_lku');
+    //     return $query;
+    // }
 }
 ?>
 

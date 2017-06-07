@@ -36,7 +36,7 @@ class VerifyRegistration extends CI_Controller
             echo "<script>alert('validation->run nije ok')</script>";
             //$this->load->view('footer.php');
         } else {
-            $register = $this->user->insertdata($_POST);
+            $register = $this->user->register_db($_POST);
             
             if ($register) {
                 // echo "<script>alert('added Sucessfully')</script>";
@@ -45,7 +45,7 @@ class VerifyRegistration extends CI_Controller
             
              // $this->load->view('login_view');
              $this->load->helper('url');
-             redirect('home', 'refresh');
+             redirect('login', 'refresh');
         }
         
     }

@@ -22,24 +22,24 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
 				<li>
 					<a href="" class="">Welcome <?php echo $username?>!</a>
 				</li>
-				<li>
+				<!-- <li>
 					<a href="index4.html" class="">home</a>
 										
-				</li>				
+				</li> -->				
 				
 				<li>
-					<a href="menu.html" class="hover-subnav ">menu</a>
+					<a href="<?php echo site_url('userMenu');?>" class="hover-subnav ">menu</a>
 					<div class="subnav image-subnav">
 						
 					</div>
 				</li>	
 				
 				<li>
-					<a href="contact.html" class="">contact</a>	
+					<a href="<?php echo site_url('home/contact');?>" class="">contact</a>	
 				</li>
 				
 				<li>
-					<a href="<?php echo site_url('home/logout');?>" class="active">Logout</a>
+					<a href="<?php echo site_url('userMenu/logout');?>" class="active">Logout</a>
 									
 				</li>
 								
