@@ -167,13 +167,15 @@ Class User extends CI_Model
         return $query;
     }
 
-    public function selectOrders()
+    public function selectOrders($id)
     {
         $query = $this->db->select('*');
         $query = $this->db->from('specialty');
         $query = $this->db->join('orders', 'specialty.specialty_id=orders.specialty_id');
+        $query = $this->db->where('user_id', $id);
         $query = $this->db->get();
         return $query;
+       
         
     }
 

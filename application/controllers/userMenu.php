@@ -46,7 +46,7 @@ class UserMenu extends CI_Controller
             // $this->load->view('home_view', $data);
             $this->load->database();
             $this->load->model('user');
-            $data['allOrders'] = $this->user->selectOrders();
+            $data['allOrders'] = $this->user->selectOrders($session_data['id']);
             $this->load->view('header.php');
             $this->load->view('navbar.php', $data);
             $this->load->view('userOrders.php', $data); 

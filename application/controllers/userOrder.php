@@ -70,7 +70,7 @@
 
 
         $order = $this->user->order_db($userID, $specialty_id);
-        redirect('userMenu','refesh');
+        redirect('userMenu/getOrders','refesh');
     }
 
 
