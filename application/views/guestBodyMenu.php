@@ -74,7 +74,7 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
 			<div class="row"> 
 			<!-- start foreach -->
 			<?php  
-         		foreach ($h->result() as $row)  
+         		foreach ($specialities->result() as $row)  
          		{  
          			if($row->status){
             ?>

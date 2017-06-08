@@ -24,7 +24,7 @@ class UserMenu extends CI_Controller
             // $this->load->view('home_view', $data);
             $this->load->database();
             $this->load->model('user');
-            $data['h'] = $this->user->selectSpecs();
+            $data['specialities'] = $this->user->selectSpecs();
             $this->load->view('header.php');
             $this->load->view('navbar.php', $data);
             $this->load->view('userBodyMenu.php', $data); 

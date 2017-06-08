@@ -14,7 +14,7 @@ class GuestMenu extends CI_Controller
     {
     	$this->load->database();
     	$this->load->model('user');
-    	$data['h'] = $this->user->selectSpecs();
+    	$data['specialities'] = $this->user->selectSpecs();
         // $data['foodsection'] = $this->user->selectCategory();
     	$this->load->view("header.php");
     	$this->load->view("navbar.php");

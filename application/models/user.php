@@ -103,11 +103,62 @@ Class User extends CI_Model
         return $query;
     }
 
-    // public function selectCategory()
-    // {
-    //     $query = $this->db->get('category_lku');
-    //     return $query;
-    // }
+    public function selectSpec($foodid)
+    {
+        $this->db->select('name, price, description, picture');
+        $this->db->from('specialty');
+        $this->db->where('specialty_id', $foodid);
+        $this->db->limit(1);
+        
+        $query = $this->db->get();
+        
+        if ($query->num_rows() == 1) {
+            return $query;//->result();
+        } else {
+            return false;
+        }
+    }
+
+    public function selectAddr($userID)
+    {
+        $this->db->select('address, apartment, floor, phone, city');
+        $this->db->from('address');
+        $this->db->where('user_id', $userID);
+        $this->db->limit(1);
+        
+        $query = $this->db->get();
+        
+        if ($query->num_rows() == 1) {
+            return $query;//->result();
+        } else {
+            return false;
+        }
+    }
+
+    public function order_db($userID, $specialtyID){
+        $this->db->trans_start();
+
+        $this->db->select('price');
+        $this->db->from('specialty');
+        $this->db->where('specialty_id', $specialtyID);
+        $this->db->limit(1);
+        
+        $query = $this->db->get();
+        foreach ($query->result() as $key) {
+            $price = $key->price;
+        }
+
+        $order = array(
+            'user_id' => $userID,
+            'specialty_id' => $specialtyID,
+            'total' => $price
+        );
+
+        $this->db->insert('orders', $order);
+
+        $this->db->trans_complete();
+    }
+
 }
 ?>
 

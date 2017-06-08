@@ -44,29 +44,7 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
 		?>
 
 
-			<!-- <li>    
-				<span class="filter" data-filter=".promotions">Promotions</span>
-			</li>
-			<li>
-				<span class="filter" data-filter=".starters">starters</span>
-			</li>
-			<li>
-				<span class="filter" data-filter=".salads">salads</span>
-			</li>
-			<li>
-				<span class="filter" data-filter=".soups">soups</span>
-			</li>
-			<li>
-				<span class="filter" data-filter=".mains">mains</span>
-			</li>
-			<li>
-				<span class="filter" data-filter=".desserts">desserts</span>
-			</li>
-			<li>
-				<span class="filter" data-filter=".drinks">drinks</span>
-			</li> -->
-
-	<!-- </ul> -->
+			
 
 	
 	<div class="container-fluid menu-content mixitup">
@@ -80,7 +58,7 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
 			<div class="row"> 
 			<!-- start foreach -->
 			<?php  
-         		foreach ($h->result() as $row)  
+         		foreach ($specialities->result() as $row)  
          		{  
          			if($row->status){
             ?>
@@ -103,12 +81,10 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
 								<span class="old-price"></span>
 								<span class="new-price item-price"><?php echo $row->price;?> RSD</span>
 								<form action="employeeDelete" method="post">
-								<?php  //echo validation_errors(); ?> 
-                        			<?php  //echo form_open('employeeDelete'); ?>
 									<input type="hidden" name="foodid" value="<?php echo $row->specialty_id;?>"><br>
-									<input type="submit" name="button-del" value="Delete">
+									<button class="btn btn-default btn-sm" type="submit">Delete</button>
 								</form>
-								<!-- <div class="shop-button" id="<?php echo $row->specialty_id;?>"><a href="#" class="btn btn-default btn-sm">Delete</a></div> -->
+								
 							</div>
 						</div>
 					</div>

@@ -23,7 +23,7 @@ class EmployeeMenu extends CI_Controller
             // $this->load->view('home_view', $data);
             $this->load->database();
             $this->load->model('employee');
-            $data['h'] = $this->employee->selectSpecs();
+            $data['specialities'] = $this->employee->selectSpecs();
             $this->load->view('header.php');
             $this->load->view('navbar.php', $data);
             $this->load->view('employeeBodyMenu.php', $data); 

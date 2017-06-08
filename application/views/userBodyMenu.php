@@ -22,46 +22,6 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
 </div> 
 <div class="section-space"></div>
 <section id="menu" class="section-scroll main-section menu">
-	<!-- <ul class="list-category"> -->
-
-		<?php 
-			// foreach ($foodsection->result() as $row)  
-   //       	{ 
-		 ?>
-
-			<!-- <li> 
-				<span class="filter" data-filter=".promotions"><?php echo $row->category_name;?></span>
-			</li> -->
-
-		<?php
-			// }
-		?>
-
-
-			<!-- <li>    
-				<span class="filter" data-filter=".promotions">Promotions</span>
-			</li>
-			<li>
-				<span class="filter" data-filter=".starters">starters</span>
-			</li>
-			<li>
-				<span class="filter" data-filter=".salads">salads</span>
-			</li>
-			<li>
-				<span class="filter" data-filter=".soups">soups</span>
-			</li>
-			<li>
-				<span class="filter" data-filter=".mains">mains</span>
-			</li>
-			<li>
-				<span class="filter" data-filter=".desserts">desserts</span>
-			</li>
-			<li>
-				<span class="filter" data-filter=".drinks">drinks</span>
-			</li> -->
-
-	<!-- </ul> -->
-
 	
 	<div class="container-fluid menu-content mixitup">
 
@@ -74,7 +34,7 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
 			<div class="row"> 
 			<!-- start foreach -->
 			<?php  
-         		foreach ($h->result() as $row)  
+         		foreach ($specialities->result() as $row)  
          		{  
          			if($row->status){
             ?>
@@ -94,6 +54,10 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
 								<p><?php echo $row->description;?></p>
 								<span class="old-price"></span>
 								<span class="new-price item-price"><?php echo $row->price;?> RSD</span>
+								<form action="userOrder" method="post">
+									<input type="hidden" name="foodid" value="<?php echo $row->specialty_id;?>"><br>
+									<button class="btn btn-default btn-sm" type="submit">Order</button>
+								</form>
 							</div>
 						</div>
 					</div>

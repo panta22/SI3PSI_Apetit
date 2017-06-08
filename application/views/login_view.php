@@ -1,5 +1,4 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+<?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');?>
  
  
  <section id="contact" class="section-scroll main-section">
@@ -21,7 +20,7 @@
 						    <input type="password" placeholder="Enter Password" id = "password" name="password" /> <br> </br>
 
 						    <button name = "btn_login" type="submit" value = "Login">Login</button>
-						    <input type="checkbox" checked="checked">Remember me<br></br>
+						    
 						    
 							<a href="register" class="active">Registration</a>
 
