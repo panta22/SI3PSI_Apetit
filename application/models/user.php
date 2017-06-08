@@ -20,6 +20,36 @@ Class User extends CI_Model
             return false;
         }
     }
+
+     function changepass_db($oldpassword, $newpassword) //dule
+    {   
+        if ($this->session->userdata('logged_in')) {
+            $session_data = $this->session->userdata('logged_in');
+            
+            $this->db->select('password');
+            $this->db->from('users');
+            $this->db->where('password', $oldpassword);
+            $this->db->where('id', $session_data['id']);
+            // $this->db->where('type', $type);
+            $this->db->limit(1);
+            
+            $query = $this->db->get();
+            
+            if ($query->num_rows() == 1) {
+                $this->db->set('password', $newpassword);
+                $this->db->where('id', $session_data['id']);
+                $this->db->update('users');
+                return true;
+            } else {
+                return false;
+            }
+
+
+        }
+        else{
+            return FALSE;
+        }   
+    }
     
     function register_db($options = array())
     {

@@ -42,9 +42,15 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
 							<li>
 								<a href="<?php echo site_url('home/contact');?>" class="">contact</a>	
 							</li>
+
+							<li>
+								<a href="<?php echo site_url('userChangePass');?>" class="">Profile</a>
+												
+							</li>
+
 							
 							<li>
-								<a href="<?php echo site_url('userMenu/logout');?>" class="active">Logout</a>
+								<a href="<?php echo site_url('userMenu/logout');?>" class="">Logout</a>
 												
 							</li>
 
