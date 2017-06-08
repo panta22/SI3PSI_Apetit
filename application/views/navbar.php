@@ -38,6 +38,10 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
 									
 								</div>
 							</li>	
+
+							<li>
+								<a href="<?php echo site_url('userMenu/getOrders');?>" class="">My Orders</a>	
+							</li>
 							
 							<li>
 								<a href="<?php echo site_url('home/contact');?>" class="">contact</a>	
@@ -58,7 +62,7 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
 						}
 					
 
-					else if($session_data['type'] = 2){
+					else if($session_data['type'] == 2){
 				?>
 						<li>
 							<a href="" class="">Welcome <?php echo $username?>!</a>
@@ -76,10 +80,36 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
 						</li>
 						
 						<li>
+							<a href="<?php echo site_url('userChangePass');?>" class="">Profile</a>
+						</li>
+						
+						<li>
 							<a href="<?php echo site_url('userMenu/logout');?>" class="active">Logout</a>
 						</li>
 					<?php
 						}
+					
+					else if($session_data['type'] == 3){
+				?>
+						<li>
+							<a href="" class="">Welcome <?php echo $username?>!</a>
+						</li>
+							
+						<li>
+							<a href="<?php echo site_url('adminPage');?>" class="">Admin</a>
+							
+						</li>	
+						
+						<li>
+							<a href="<?php echo site_url('userChangePass');?>" class="">Profile</a>
+						</li>
+						
+						<li>
+							<a href="<?php echo site_url('adminPage/logout');?>" class="">Logout</a>
+						</li>
+					<?php
+						}
+					
 					}
 						else {
 					?>

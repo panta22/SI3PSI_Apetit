@@ -21,7 +21,7 @@ Class User extends CI_Model
         }
     }
 
-     function changepass_db($oldpassword, $newpassword) //dule
+     function changepass_db($oldpassword, $newpassword) 
     {   
         if ($this->session->userdata('logged_in')) {
             $session_data = $this->session->userdata('logged_in');
@@ -103,6 +103,7 @@ Class User extends CI_Model
         return $query;
     }
 
+
     public function selectSpec($foodid)
     {
         $this->db->select('name, price, description, picture');
@@ -158,6 +159,35 @@ Class User extends CI_Model
 
         $this->db->trans_complete();
     }
+
+
+    public function selectUsers()
+    {
+        $query = $this->db->get('users');
+        return $query;
+    }
+
+    public function selectOrders()
+    {
+        $query = $this->db->select('*');
+        $query = $this->db->from('specialty');
+        $query = $this->db->join('orders', 'specialty.specialty_id=orders.specialty_id');
+        $query = $this->db->get();
+        return $query;
+        
+    }
+
+
+
+
+
+
+
+    // public function selectCategory()
+    // {
+    //     $query = $this->db->get('category_lku');
+    //     return $query;
+    // }
 
 }
 ?>

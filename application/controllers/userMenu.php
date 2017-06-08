@@ -11,7 +11,7 @@ class UserMenu extends CI_Controller
     function __construct()
     {
         parent::__construct();
-        // $this->load->model('user', '', TRUE);
+        $this->load->model('user', '', TRUE);
     }
     
     function index()
@@ -28,6 +28,28 @@ class UserMenu extends CI_Controller
             $this->load->view('header.php');
             $this->load->view('navbar.php', $data);
             $this->load->view('userBodyMenu.php', $data); 
+            $this->load->view('footer.php');
+        } else {
+            //If no session, redirect to login page
+            $this->load->helper('url');
+            redirect('login', 'refresh');
+            
+        }
+    }
+
+    function getOrders(){
+        if ($this->session->userdata('logged_in')) {
+            $session_data     = $this->session->userdata('logged_in');
+            $data['username'] = $session_data['username'];
+            // $data['h'] = $this->user->selectSpecs();
+
+            // $this->load->view('home_view', $data);
+            $this->load->database();
+            $this->load->model('user');
+            $data['allOrders'] = $this->user->selectOrders();
+            $this->load->view('header.php');
+            $this->load->view('navbar.php', $data);
+            $this->load->view('userOrders.php', $data); 
             $this->load->view('footer.php');
         } else {
             //If no session, redirect to login page
