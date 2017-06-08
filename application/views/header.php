@@ -1,6 +1,8 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed'); ?>
 
+
+
 <!DOCTYPE html>
 <html>
 	
@@ -19,7 +21,22 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
 		<link rel="stylesheet" href="/apetit/css/custom.css">
 		<script src="/apetit/js/jquery-2.1.0.min.js"></script>
 		<script src="/apetit/js/modernizr-2.6.2.min.js"></script>
+		<!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script> -->
 		<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?sensor=false&amp;ver=3.0"></script>
+
+		<!-- <script language="JavaScript">
+			$(document).ready(function(){
+			    $(".shop-button").click(function() {
+			        // $.post("'.$_SERVER['REQUEST_URI'].'", { id: $(this).attr("id") });
+			  //       $.post(location.href, { id: $(this).attr('id') }, function(response) {
+					// 	// Inserts your chosen response into the page in 'response-content' DIV
+					// 	//$('#response-content').html(response); // Can also use .text(), .append(), etc
+					// });
+			        var id =  $(this).attr("id");
+			        alert(id);
+			    });
+			});
+		</script> -->
 
     </head>
     <body class="home-page yo-anim-enabled">

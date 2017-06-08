@@ -82,6 +82,39 @@ Class Employee extends CI_Model
     //     $query = $this->db->get('category_lku');
     //     return $query;
     // }
+
+    function delete_db($foodid)
+    {
+
+        $this->db->trans_start();
+
+        $this->db->set('status', 0);
+        $this->db->where('specialty_id', $foodid);
+        $this->db->update('specialty');
+
+
+
+
+
+        // if (isset($options['category_id']))
+        //     $this->db->set('category_id', strip_tags($options['category_id']));
+        
+        // // if (isset($options['name']))
+        // //     $this->db->set('name', strip_tags($options['name']));
+        
+        // // if (isset($options['price']))
+        // //     $this->db->set('price', strip_tags($options['price']));
+
+        // // if (isset($options['description']))
+        // //     $this->db->set('description', strip_tags($options['description']));
+        
+        // $this->db->insert("specialty");
+
+        $this->db->trans_complete();
+    }
+        
+        
+        
 }
 ?>
 
