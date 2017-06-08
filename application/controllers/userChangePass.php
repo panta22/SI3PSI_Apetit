@@ -34,16 +34,30 @@ class userChangePass extends CI_Controller {
 
 			$result = $this->user->changepass_db($oldpassword, $newpassword);
 
-			if($result){
-				redirect('userMenu', 'refresh');
-			}
-			else{
-				redirect('userChangePass', 'refresh');
+			if ($this->session->userdata('logged_in')) {
+            	$session_data     = $this->session->userdata('logged_in');
+
+				if($result)
+				{
+					switch ($session_data['type']) {
+						case 1:
+							redirect('userMenu', 'refresh');
+							break;
+						case 2:
+							redirect('employeeMenu', 'refresh');
+							break;
+						case 3:
+							redirect('adminPage', 'refresh');
+							break;
+					}
+
+				}
+				else{
+					redirect('userChangePass', 'refresh');
+				}
 			}
 		}
-
 	}
-
 }
 
 ?>

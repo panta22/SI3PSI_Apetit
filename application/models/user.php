@@ -21,7 +21,7 @@ Class User extends CI_Model
         }
     }
 
-     function changepass_db($oldpassword, $newpassword) //dule
+     function changepass_db($oldpassword, $newpassword) 
     {   
         if ($this->session->userdata('logged_in')) {
             $session_data = $this->session->userdata('logged_in');
@@ -102,6 +102,28 @@ Class User extends CI_Model
         $query = $this->db->get('specialty');
         return $query;
     }
+
+    public function selectUsers()
+    {
+        $query = $this->db->get('users');
+        return $query;
+    }
+
+    public function selectOrders()
+    {
+        $query = $this->db->select('*');
+        $query = $this->db->from('specialty');
+        $query = $this->db->join('orders', 'specialty.specialty_id=orders.specialty_id');
+        $query = $this->db->get();
+        return $query;
+        
+    }
+
+
+
+
+
+
 
     // public function selectCategory()
     // {

@@ -48,7 +48,7 @@ class VerifyLogin extends CI_Controller
                         break;
 
                     case 3: 
-                        // admin view
+                        redirect('adminPage');
                         break;
 
                 }
