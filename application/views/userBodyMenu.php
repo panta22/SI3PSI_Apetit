@@ -76,6 +76,7 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
 			<?php  
          		foreach ($h->result() as $row)  
          		{  
+         			if($row->status){
             ?>
 		        <div class="menu-item">
 					<a href="/apetit/img/demo/food/1.jpg" class="open-overlay">
@@ -91,13 +92,14 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
 							<div class=""> 
 								<h6><?php echo $row->name;?></h6>
 								<p><?php echo $row->description;?></p>
-								<span class="old-price">$24.90</span>
-								<span class="new-price item-price"><?php echo $row->price;?></span>
+								<span class="old-price"></span>
+								<span class="new-price item-price"><?php echo $row->price;?> RSD</span>
 							</div>
 						</div>
 					</div>
 				</div>
          	<?php 
+         			}
      			}  
          	?>
 
