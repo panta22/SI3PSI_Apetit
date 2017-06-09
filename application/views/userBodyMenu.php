@@ -39,9 +39,9 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
          			if($row->status){
             ?>
 		        <div class="menu-item">
-					<a href="/apetit/img/demo/food/1.jpg" class="open-overlay">
+					<a href=<?php echo $row->picture;?> class="open-overlay">
 						<figure>
-							<img src="img/placeholder.png" data-src="/apetit/img/demo/food/1.jpg" alt="Menu item"/>
+							<img src="img/placeholder.png" data-src=<?php echo $row->picture;?> alt="Menu item"/>
 							<div class="actions">
 								<i class="icon-magnifier-add"></i>
 							</div>

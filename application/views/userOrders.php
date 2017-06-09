@@ -13,9 +13,9 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
 					
 				<table style="width:100%">
 				  <tr>
-				    <th>Speciality</th>
-				    <th>Amount</th>
 				    <th>Order Date</th>
+				    <th>Name</th>
+				    <th>Amount</th>
 				    <th>Status</th>
 				  </tr>
 				  <?php  
@@ -26,7 +26,13 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
 				  		<td><?php echo $row->date;?></td>
 					  	<td><?php echo $row->name;?></td>
 					    <td><?php echo $row->price;?></td>
-					    <td><?php echo $row->order_status;?></td>
+					    <td style='color:
+					    	<?php 
+					    		if ($row->order_status == "Rejected") echo "red";
+					    		if ($row->order_status == "Accepted") echo "green";
+					    		if ($row->order_status == "Pending") echo "orange";
+					    	?>
+					    ';><?php echo $row->order_status;?></td>
 				
 				  </tr>
 				<?php

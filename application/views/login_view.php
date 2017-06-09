@@ -18,11 +18,16 @@
 
 						    <label for="password"><b>Password</b></label>
 						    <input type="password" placeholder="Enter Password" id = "password" name="password" /> <br> </br>
+						<table>
+						<td>
+						   <button class="btn btn-default btn-sm" type="submit">Login</button>
+						</td>
+						<td>
+						   <div class="shop-button"><a href="register" class="btn btn-default btn-sm">Register</a></div>
+						</td>
 
-						    <button name = "btn_login" type="submit" value = "Login">Login</button>
+						</table>
 						    
-						    
-							<a href="register" class="active">Registration</a>
 
 
 						
