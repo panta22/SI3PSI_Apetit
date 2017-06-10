@@ -16,19 +16,18 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 				<div class="row">
 					
                    
-
+					<?php  echo validation_errors(); ?>
                     <form action="userChangePass/verifyChangePass" method="POST">
+                	 
 						<label for="oldpassword"><b>Old Password</b></label>
 					    <input type="password" placeholder="Enter Old Password" id = "oldpassword" name="oldpassword" /> <br> </br>
 
 					    <label for="newpassword"><b>New Password</b></label>
 					    <input type="password" placeholder="Enter Password" id = "newpassword" name="newpassword" /> <br> </br>
 
-					    <button name = "btn_login" type="submit" value = "Submit">Change</button>
+					    <button class="btn btn-default btn-sm" type="submit">Change</button>
 				    </form>
-						    <!-- <input type="checkbox" checked="checked">Remember me<br></br> -->
-						    
-							<!-- <a href="register" class="active">Registration</a> -->
+						   
 
 
 						

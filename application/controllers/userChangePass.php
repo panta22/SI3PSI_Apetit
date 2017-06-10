@@ -8,6 +8,7 @@ class userChangePass extends CI_Controller {
 		$this->load->model('user', '', TRUE);
 		$this->load->helper('form');
 		$this->load->helper('url');
+		$this->load->library('form_validation');
 	}
 
 	function index()
@@ -53,6 +54,9 @@ class userChangePass extends CI_Controller {
 
 				}
 				else{
+					 //$this->load->helper('form_validation');
+					$this->form_validation->set_message('verifyChangePass', 'Invalid password');
+					
 					redirect('userChangePass', 'refresh');
 				}
 			}

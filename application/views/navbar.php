@@ -10,7 +10,7 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
 		</div>
 
 		<div class="logo pull-left">
-			<a href="index.html">
+			<a href="#">
 				<figure>
 					<img src="/apetit/img/logo1.png" class="light-logo"/>
 					<img src="/apetit/img/logo2.png" class="dark-logo"/>
@@ -29,7 +29,7 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
 						if($session_data['type'] == 1){
 				?>
 							<li>
-								<a href="" class="">Welcome <?php echo $username?>!</a>
+								<a href="#" class="">Welcome <?php echo $username?>!</a>
 							</li>
 
 							<li>
@@ -65,7 +65,7 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
 					else if($session_data['type'] == 2){
 				?>
 						<li>
-							<a href="" class="">Welcome <?php echo $username?>!</a>
+							<a href="#" class="">Welcome <?php echo $username?>!</a>
 						</li>
 						
 						<li>
@@ -77,6 +77,14 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
 						
 						<li>
 							<a href="<?php echo site_url('employeeAdd');?>" class="">AddFood</a>	
+						</li>
+
+						<li>
+							<a href="<?php echo site_url('emplPendingController');?>" class="">Pending</a>	
+						</li>
+
+						<li>
+							<a href="<?php echo site_url('employeeCompleted');?>" class="">Completed</a>	
 						</li>
 						
 						<li>
@@ -92,7 +100,7 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
 					else if($session_data['type'] == 3){
 				?>
 						<li>
-							<a href="" class="">Welcome <?php echo $username?>!</a>
+							<a href="#" class="">Welcome <?php echo $username?>!</a>
 						</li>
 							
 						<li>
