@@ -43,9 +43,9 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
 								<a href="<?php echo site_url('userMenu/getOrders');?>" class="">My Orders</a>	
 							</li>
 							
-							<li>
+							<!-- <li>
 								<a href="<?php echo site_url('home/contact');?>" class="">contact</a>	
-							</li>
+							</li> -->
 
 							<li>
 								<a href="<?php echo site_url('userChangePass');?>" class="">Profile</a>
@@ -128,9 +128,9 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
 							</div>
 						</li>	
 						
-						<li>
+						<!-- <li>
 							<a href="contact.html" class="">contact</a>	
-						</li>
+						</li> -->
 						
 						<li>
 							<a href="<?php echo site_url('login');?>" class="active">Login</a>

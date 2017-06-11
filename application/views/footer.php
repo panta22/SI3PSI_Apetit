@@ -10,7 +10,7 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
 
 	
 
-	<p class="copyrights">© 2017 <a href="index-2.html">Apetit</a>. All Rights Reserved. </p>
+	<p class="copyrights">© 2017 Apetit. All Rights Reserved. </p>
 </footer>
 	<div class="home-bg-image"></div>
 </div>

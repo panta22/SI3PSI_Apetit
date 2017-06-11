@@ -8,16 +8,19 @@ Class User extends CI_Model
         $this->db->select('id, username, password, type');
         $this->db->from('users');
         $this->db->where('username', $username);
-        $this->db->where('password', $password);
+        // $this->db->where('password', $this->hash_password($password));
         // $this->db->where('type', $type);
         $this->db->limit(1);
         
+
         $query = $this->db->get();
         
-        if ($query->num_rows() == 1) {
-            return $query->result();
-        } else {
-            return false;
+        if (!password_verify($password, $query->hash)){
+            if ($query->num_rows() == 1) {
+                return $query->result();
+            } else {
+                return false;
+            }
         }
     }
 
@@ -53,15 +56,28 @@ Class User extends CI_Model
     
     function register_db($options = array())
     {
-        $this->db->trans_start();
-        if (isset($options['username']))
-            $this->db->set('username', strip_tags($options['username']));
+
         
+        $this->db->trans_start();
+        if (isset($options['username'])){
+            $this->db->select('username');
+            $this->db->from('users');
+            $this->db->where('username', $options['username']);
+            $query = $this->db->get();
+            if ($query->num_rows() > 0) {
+                return false;
+            }else{
+                $this->db->set('username', strip_tags($options['username']));
+            }
+        }
         if (isset($options['email']))
             $this->db->set('email', strip_tags($options['email']));
         
         if (isset($options['password']))
+        {
+            $options['password'] = $this->hash_password($options['password']);
             $this->db->set('password', strip_tags($options['password']));
+        }
         
         $this->db->insert("users");
         
@@ -95,6 +111,11 @@ Class User extends CI_Model
         else
             return FALSE;
     }
+
+    private function hash_password($password){
+        return password_hash($password, PASSWORD_BCRYPT);
+      }  
+     
 
 
     public function selectSpecs()
