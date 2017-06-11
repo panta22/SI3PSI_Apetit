@@ -1,3 +1,5 @@
+<!-- Autor Dusan Pantic 533/2010 -->
+
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed'); ?>
 
@@ -12,7 +14,7 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
 				<div class="row">
 						<table padding = "5px" border="0">
 							<?php  echo validation_errors(); ?> 
-	                        <?php  echo form_open('verifyAddFood');?> 
+	                        <?php  echo form_open_multipart('verifyAddFood');?> 
 							<tr>
 								<td><label><b>Name</b></label></td>
 							    <td><input type="text"  name="name" required></td>
@@ -24,7 +26,12 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
 							<tr>
 								<td><label><b>Description</b></label></td>
 							    <td><input type="text"  name="description" required></td>
-						    </tr>
+							</tr>
+							<tr>
+							<td>
+								</td>
+									<td><input type="file"  name="picture" size="20" required></td>
+								</tr>
 							<tr>
 							    <td colspan="2" align="center">
 							    </br>

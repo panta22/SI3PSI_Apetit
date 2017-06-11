@@ -1,3 +1,4 @@
+<!-- Autor Dusan Pantic 533/2010 -->
 <?php
 if (!defined('BASEPATH'))
     exit('No direct script access allowed');

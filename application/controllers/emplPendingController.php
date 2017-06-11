@@ -1,10 +1,10 @@
+<!-- Autor Dusan Savic 539/2010 -->
+
 <?php
 if (!defined('BASEPATH'))
     exit('No direct script access allowed');
 
-// if(! $_SESSION) {
-//  session_start(); //we need to call PHP's session object to access it through CI
-// }
+
 class EmplPendingController extends CI_Controller
 {
     

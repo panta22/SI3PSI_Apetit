@@ -1,3 +1,5 @@
+<!-- Autor Dusan Pantic 533/2010 -->
+
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
 
@@ -33,17 +35,7 @@
                 $data['address'] = $this->user->selectAddr($session_data['id']);
 
 
-                // $userID = $session_data['id'];
-                // $specialty_id = $_POST["foodid"];
-                // foreach ($data['order']->result() as $key) {
-                //     $price = $key->price;
-                // }
-
-                // $userID = $session_data['id'];
-                // $GLOBALS['ordSpecId'] = $_POST["foodid"];
-                // foreach ($data['order']->result() as $key) {
-                //     $GLOBALS['ordPrice'] = $key->price;
-                // }
+               
 
 
                 $this->load->library('form_validation');

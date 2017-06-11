@@ -1,3 +1,5 @@
+<!-- Autor Dusan Savic 539/2010 -->
+
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 

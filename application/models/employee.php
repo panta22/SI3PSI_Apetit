@@ -1,3 +1,6 @@
+<!-- Autor Dusan Pantic 533/2010 -->
+<!-- Autor Dusan Savic 539/2010 -->
+
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
@@ -16,7 +19,12 @@ Class Employee extends CI_Model
 
         if (isset($options['description']))
             $this->db->set('description', strip_tags($options['description']));
+
+        $upload_data = $this->upload->data();
         
+        $this->db->set('picture', 'http://localhost/apetit/img/demo/food/' . $upload_data['file_name']);
+        
+        // http://localhost/apetit/img/demo/food/20.jpg
         $this->db->insert("specialty");
         
         $this->db->trans_complete();

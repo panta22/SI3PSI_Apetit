@@ -1,3 +1,5 @@
+<!-- Autor Dusan Pantic 533/2010 -->
+
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed'); ?>
  
@@ -15,7 +17,7 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
 				  <tr>
 				    <th>Order Date</th>
 				    <th>Name</th>
-				    <th>Amount</th>
+				    <th>Price</th>
 				    <th>Status</th>
 				  </tr>
 				  <?php  

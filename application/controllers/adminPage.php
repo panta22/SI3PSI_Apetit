@@ -1,10 +1,7 @@
-<?php
-if (!defined('BASEPATH'))
-    exit('No direct script access allowed');
+<!-- Autor Dusan Savic 539/2010 -->
 
-// if(! $_SESSION) {
-//  session_start(); //we need to call PHP's session object to access it through CI
-// }
+<?php if (!defined('BASEPATH')) exit('No direct script access allowed');
+
 class AdminPage extends CI_Controller
 {
     
@@ -23,16 +20,16 @@ class AdminPage extends CI_Controller
             $data['username'] = $session_data['username'];
             $data['users'] = $this->user->selectUsers();
 
-            //$this->load->view('home_view', $data);
+            
             $this->load->database();
             $this->load->model('user');
-            //$data['h'] = $this->user->selectSpecs();
+            
             $this->load->view('header.php');
             $this->load->view('navbar.php', $data);
             $this->load->view('adminBody.php', $data); 
             $this->load->view('footer.php');
         } else {
-            //If no session, redirect to login page
+            
             $this->load->helper('url');
             redirect('login', 'refresh');
             
@@ -47,7 +44,7 @@ class AdminPage extends CI_Controller
         }
 
     }
-    
+
     function logout()
     {
         $this->session->unset_userdata('logged_in');
@@ -55,4 +52,5 @@ class AdminPage extends CI_Controller
         $this->load->helper('url');
         redirect('guestMenu', 'refresh');
     }
+
 }

@@ -1,3 +1,5 @@
+<!-- Autor Dusan Pantic 533/2010 -->
+
 <?php
 if (!defined('BASEPATH'))
     exit('No direct script access allowed');
@@ -40,12 +42,13 @@ class VerifyRegistration extends CI_Controller
             
             if ($register) {
                 // echo "<script>alert('added Sucessfully')</script>";
+                redirect('login', 'refresh');
             } else
-                echo "<script>alert('FAILED')</script>";
+                echo "<script>alert('User name already exits! Please use another one.')</script>";
             
              // $this->load->view('login_view');
              $this->load->helper('url');
-             redirect('login', 'refresh');
+             redirect('register', 'refresh');
         }
         
     }

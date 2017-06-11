@@ -1,10 +1,10 @@
+<!-- Autor Dusan Pantic 533/2010 -->
+
 <?php
 if (!defined('BASEPATH'))
     exit('No direct script access allowed');
 
-// if(! $_SESSION) {
-//  session_start(); //we need to call PHP's session object to access it through CI
-// }
+
 class UserMenu extends CI_Controller
 {
     
@@ -19,9 +19,7 @@ class UserMenu extends CI_Controller
         if ($this->session->userdata('logged_in')) {
             $session_data     = $this->session->userdata('logged_in');
             $data['username'] = $session_data['username'];
-            // $data['h'] = $this->user->selectSpecs();
-
-            // $this->load->view('home_view', $data);
+            
             $this->load->database();
             $this->load->model('user');
             $data['specialities'] = $this->user->selectSpecs();
@@ -30,7 +28,7 @@ class UserMenu extends CI_Controller
             $this->load->view('userBodyMenu.php', $data); 
             $this->load->view('footer.php');
         } else {
-            //If no session, redirect to login page
+            
             $this->load->helper('url');
             redirect('login', 'refresh');
             
@@ -41,9 +39,7 @@ class UserMenu extends CI_Controller
         if ($this->session->userdata('logged_in')) {
             $session_data     = $this->session->userdata('logged_in');
             $data['username'] = $session_data['username'];
-            // $data['h'] = $this->user->selectSpecs();
-
-            // $this->load->view('home_view', $data);
+           
             $this->load->database();
             $this->load->model('user');
             $data['allOrders'] = $this->user->selectOrders($session_data['id']);
@@ -52,7 +48,7 @@ class UserMenu extends CI_Controller
             $this->load->view('userOrders.php', $data); 
             $this->load->view('footer.php');
         } else {
-            //If no session, redirect to login page
+            
             $this->load->helper('url');
             redirect('login', 'refresh');
             
@@ -67,15 +63,6 @@ class UserMenu extends CI_Controller
         redirect('guestMenu', 'refresh');
     }
 
-    function contact()
-    {
-        $this->load->view('header.php');
-        $this->load->view('navbar.php');
-        $this->load->view('contact.php');
-        $this->load->view('footer.php');
-    }
-
-    
 
 }
 

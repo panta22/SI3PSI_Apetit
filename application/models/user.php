@@ -1,3 +1,5 @@
+<!-- Autor Dusan Pantic 533/2010 -->
+
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
@@ -199,18 +201,6 @@ Class User extends CI_Model
        
         
     }
-
-
-
-
-
-
-
-    // public function selectCategory()
-    // {
-    //     $query = $this->db->get('category_lku');
-    //     return $query;
-    // }
 
 }
 ?>
