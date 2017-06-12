@@ -24,23 +24,26 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
 	         			foreach ($pending->result() as $row) 
 	         			{ 
             		?>
-	            			<?php  echo validation_errors(); ?> 
-	                    	<?php  echo form_open('emplPendingController/confirm'); ?>	
-						  	<tr>
-						  		<td><?php echo $row->date;?></td>
-						  		<td><?php echo $row->address . ", ". $row->apartment . ", ". $row->floor;?></td>
-							  	<td><?php echo $row->name;?></td>
-							    <td><?php echo $row->total;?></td>
-							    <td><?php echo $row->order_status;?></td>
-							    <td>
-							    	<select name="order_status">
-							    	<option value="Accepted">Accept</option>
-							    	<option value="Rejected">Reject</option>
-							    	</select>
-							    </td>
-							    <input type="hidden" name="order_id" value="<?php echo $row->order_id;?>">
-							 	<td><button class="btn btn-default btn-sm" type="submit">Confirm</button></td>
-						 	</tr>
+	                    	<form action='emplPendingController/confirm' method="post">
+							  	<tr>
+							  		<td><?php echo $row->date;?></td>
+							  		<td><?php echo $row->address . ", ". $row->apartment . ", ". $row->floor;?></td>
+								  	<td><?php echo $row->name;?></td>
+								    <td><?php echo $row->total;?></td>
+								    <td><?php echo $row->order_status;?></td>
+								    <td>
+								    	<select name="order_status">
+								    	<option value="Accepted">Accept</option>
+								    	<option value="Rejected">Reject</option>
+								    	</select>
+								    </td>
+								    
+								 	<td>
+								 		<input type="hidden" name="order_id" value="<?php echo $row->order_id;?>">
+								 		<button class="btn btn-default btn-sm" type="submit">Confirm</button>
+								 	</td>
+							 	</tr>
+						 	</form>
 					<?php
 					
 						}

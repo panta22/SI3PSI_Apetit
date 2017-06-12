@@ -23,7 +23,7 @@ class EmplPendingController extends CI_Controller
             $this->load->helper("form");
             $this->load->view('header.php');
             $this->load->view('navbar.php', $data);
-            $this->load->view('employeePending.php',$data); // 
+            $this->load->view('employeePending.php',$data);
             $this->load->view('footer.php');
         } else {
             //If no session, redirect to login page
@@ -33,11 +33,14 @@ class EmplPendingController extends CI_Controller
     }
 
     function confirm(){
-        $newstatus = $this->input->post('order_status');
-        $orderID = $this->input->post('order_id');
-        $this->employee->changeStatus($newstatus, $orderID);
-        //$this->load->helper('url');
-        redirect('emplPendingController', 'refresh');
+        if (isset($_POST['order_status']) && isset($_POST['order_id'])){
+            $newstatus = $_POST['order_status'];
+            $orderID = $_POST['order_id'];
+            $this->employee->changeStatus($newstatus, $orderID);
+
+            redirect('emplPendingController', 'refresh');
+        }
+        
 
         
     }
