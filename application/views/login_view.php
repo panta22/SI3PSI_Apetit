@@ -16,7 +16,7 @@
                             <?php  echo validation_errors(); ?> 
                             <?php  echo form_open('verifylogin'); ?> 
 							<label for="username"><b>Username</b></label>
-						    <input type="text" placeholder="Enter email" id = "username" name="username" /> <br> </br>
+						    <input type="text" placeholder="Enter Username" id = "username" name="username" /> <br> </br>
 
 						    <label for="password"><b>Password</b></label>
 						    <input type="password" placeholder="Enter Password" id = "password" name="password" /> <br> </br>

@@ -5,6 +5,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 Class User extends CI_Model
 {
+
     function login_db($username, $password)
     {
         $this->db->select('id, username, password, type');
@@ -13,16 +14,34 @@ Class User extends CI_Model
         // $this->db->where('password', $this->hash_password($password));
         // $this->db->where('type', $type);
         $this->db->limit(1);
+
         
 
         $query = $this->db->get();
+
+        if ($query->num_rows() == 1) {
+            
         
-        if (!password_verify($password, $query->hash)){
+
+        foreach ($query->result() as $key) {
+            $hash = $key->password;
+        }
+        // echo $hash;
+        
+        if (password_verify($password, $hash)){
+            $this->db->select('id, username, password, type');
+            $this->db->from('users');
+            $this->db->where('username', $username);
+            // $this->db->where('password', $this->hash_password($password));
+            // $this->db->where('type', $type);
+            $this->db->limit(1);
+            $query = $this->db->get();
             if ($query->num_rows() == 1) {
                 return $query->result();
             } else {
                 return false;
             }
+        }
         }
     }
 
@@ -115,7 +134,17 @@ Class User extends CI_Model
     }
 
     private function hash_password($password){
-        return password_hash($password, PASSWORD_BCRYPT);
+        return password_hash($password, PASSWORD_DEFAULT); /*PASSWORD_BCRYPT*/
+      }  
+
+      private function getHash($username){
+        $this->db->select('password');
+        $this->db->from('users');
+        $this->db->where('username', $username);
+        $this->db->limit(1);
+        
+        $query = $this->db->get();
+        return $query->result();
       }  
      
 
