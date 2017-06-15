@@ -32,10 +32,10 @@ class VerifyRegistration extends CI_Controller
         $this->form_validation->set_rules('city', 'City', 'required');
         
         if ($this->form_validation->run() == FALSE) {
-            //Field validation failed.  User redirected to login page
-            //      $this->load->view('header.php');
-            //    $this->load->view('navbar.php');
-            echo "<script>alert('validation->run nije ok')</script>";
+            
+            echo "<script>alert('Confirm Password not matched or some fields are not in good format')</script>";
+            $this->load->helper('url');
+             redirect('register', 'refresh');
             //$this->load->view('footer.php');
         } else {
             $register = $this->user->register_db($_POST);
