@@ -49,21 +49,27 @@ Class User extends CI_Model
     {   
         if ($this->session->userdata('logged_in')) {
             $session_data = $this->session->userdata('logged_in');
-            
             $this->db->select('password');
             $this->db->from('users');
-            $this->db->where('password', $oldpassword);
             $this->db->where('id', $session_data['id']);
             // $this->db->where('type', $type);
             $this->db->limit(1);
             
             $query = $this->db->get();
+            foreach ($query->result() as $key) {
+            $hash = $key->password;
+        }
             
             if ($query->num_rows() == 1) {
-                $this->db->set('password', $newpassword);
+                if (password_verify($oldpassword, $hash)){
+                $password = $this->hash_password($newpassword);
+                $this->db->set('password', $password);
                 $this->db->where('id', $session_data['id']);
                 $this->db->update('users');
                 return true;
+                } else {
+                    return false;
+                }
             } else {
                 return false;
             }
